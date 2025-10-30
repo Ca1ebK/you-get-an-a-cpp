@@ -27,6 +27,75 @@ Any tests that you define in the `tests/` directory must have a corresponding en
 
 The `main.cpp` file at the root of the project must have a corresponding entry in `CMakeLists.txt`. After you build executables using CMake, you can run the driver program from within the `build/` directory.
 
+```bash
+./main
+```
+
+## Using the Gradebook
+
+The `Gradebook` class allows you to track grades for CSC 122. Here's how to use it:
+
+### 1. Add Students
+
+Add students to your gradebook using `add_student()`:
+
+```cpp
+Gradebook gradebook;
+gradebook.add_student("Bob Bobberson", "ABC123");
+gradebook.add_student("Sam Sammerson", "DEF456");
+```
+
+Each student needs:
+- Full name (string) - first and last name separated by a space
+- Student ID (string)
+
+### 2. Add Assignments
+
+Add assignments to your gradebook using `add_assignment()`:
+
+```cpp
+gradebook.add_assignment("Quiz 1", 100);
+gradebook.add_assignment("Lab 1", 50);
+```
+
+Each assignment needs:
+- Assignment name (string)
+- Total points possible (double)
+
+### 3. Enter Grades
+
+Enter a grade for a student on an assignment using `enter_grade()`:
+
+```cpp
+gradebook.enter_grade("Sam Sammerson", "Quiz 1", 95);
+gradebook.enter_grade("Bob Bobberson", "Quiz 1", 85);
+```
+
+### 4. Generate Report
+
+Generate a CSV-formatted report of all students and their grades:
+
+```cpp
+std::cout << gradebook.report();
+```
+
+The report is formatted as CSV with:
+- Header row: Last_Name,First_Name,Student_Id,Assignment1,Assignment2,...
+- Student rows sorted by last name
+- Grades shown as integers, or "none" for missing grades
+
+### Example Usage
+
+See `main.cpp` for a complete example demonstrating all operations. The example matches the professor's sample code.
+
+### Running Tests
+
+To run the gradebook unit tests:
+
+```bash
+./gradebook_test
+```
+
 ## Running Benchmarks
 
 Benchmarking is provided with Catch2. You can write benchmarking assertions alongside test assertions right in your test files.
