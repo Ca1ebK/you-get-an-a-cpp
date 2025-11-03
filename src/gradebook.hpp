@@ -1,9 +1,7 @@
-#ifndef GRADEBOOK_HPP
-#define GRADEBOOK_HPP
+#pragma once
 
 #include <string>
 #include <vector>
-#include <algorithm>
 
 class Gradebook {
 public:
@@ -29,7 +27,10 @@ private:
     
     int find_student_index(const std::string& student_name) const;
     int find_assignment_index(const std::string& assignment_name) const;
+    std::string extract_last_name(const std::string& full_name) const;
+    std::string extract_first_name(const std::string& full_name) const;
+    std::string format_grade(double grade) const;
+    std::string generate_header() const;
+    std::string generate_student_row(int student_idx) const;
 };
-
-#endif // GRADEBOOK_HPP
 

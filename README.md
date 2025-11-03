@@ -81,7 +81,7 @@ std::cout << gradebook.report();
 
 The report is formatted as CSV with:
 - Header row: Last_Name,First_Name,Student_Id,Assignment1,Assignment2,...
-- Student rows sorted by last name
+- Student rows in the order they were added
 - Grades shown as integers, or "none" for missing grades
 
 ### Example Usage
